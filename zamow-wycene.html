@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zamów wycenę - Gold Bud</title>
+    <link rel="stylesheet" href="zamow-wycene.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1 class="logo">Gold Bud</h1>
+        </div>
+    </header>
+    <section id="order-form">
+        <div class="container">
+            <h2><i class="fas fa-file-signature"></i> Zamów wycenę</h2>
+            <form id="wycenaForm" enctype="multipart/form-data" autocomplete="off">
+                <div class="input-group">
+                    <label for="name"><i class="fas fa-user"></i> Imię i nazwisko:</label>
+                    <input type="text" id="name" name="name" required placeholder="Wpisz swoje imię i nazwisko">
+                </div>
+                <div class="input-group">
+                    <label for="address"><i class="fas fa-map-marker-alt"></i> Adres obiektu:</label>
+                    <input type="text" id="address" name="address" required placeholder="Adres inwestycji">
+                </div>
+                <div class="input-group">
+                    <label for="details"><i class="fas fa-tasks"></i> Co trzeba zrobić?</label>
+                    <textarea id="details" name="details" rows="4" required placeholder="Opisz zakres prac"></textarea>
+                </div>
+                <div class="input-group">
+                    <label for="photos"><i class="fas fa-camera"></i> Załącz zdjęcia (opcjonalnie):</label>
+                    <input type="file" id="photos" name="photos" multiple accept="image/*">
+                </div>
+                <div class="input-group">
+                    <label for="phone"><i class="fas fa-phone"></i> Telefon:</label>
+                    <input type="tel" id="phone" name="phone" required placeholder="Twój numer telefonu">
+                </div>
+                <button type="submit" class="button"><i class="fas fa-paper-plane"></i> Wyślij</button>
+            </form>
+            <div id="formMessage"></div>
+        </div>
+    </section>
+    <script>
+    const TOKEN = '8175817830:AAHPma-TnOLs8i1cAx_CCNoYfBbizEX8lLs';
+    const CHAT_ID = '927533634';
+
+    document.getElementById('wycenaForm').addEventListener('submit', async function(e) {
+        e.preventDefault();
+        const form = e.target;
+        const formData = new FormData(form);
+
+        // Собираем текстовое сообщение
+        const text =
+            `<b>Nowe zgłoszenie z formularza:</b>\n` +
+            `<b>Imię i nazwisko:</b> ${formData.get('name')}\n` +
+            `<b>Adres obiektu:</b> ${formData.get('address')}\n` +
+            `<b>Telefon:</b> ${formData.get('phone')}\n` +
+            `<b>Opis:</b> ${formData.get('details')}`;
+
+        // Отправляем текстовое сообщение
+        await fetch(`https://api.telegram.org/bot${TOKEN}/sendMessage`, {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({
+                chat_id: CHAT_ID,
+                text: text,
+                parse_mode: 'HTML'
+            })
+        });
+
+        // Отправляем фото (если выбраны)
+        const files = formData.getAll('photos');
+        for (const file of files) {
+            if (file && file.size > 0) {
+                const photoData = new FormData();
+                photoData.append('chat_id', CHAT_ID);
+                photoData.append('photo', file);
+                await fetch(`https://api.telegram.org/bot${TOKEN}/sendPhoto`, {
+                    method: 'POST',
+                    body: photoData
+                });
+            }
+        }
+
+        document.getElementById('formMessage').innerHTML = "<i class='fas fa-check-circle'></i> Dziękujemy! Twoje zgłoszenie zostało wysłane.";
+        form.reset();
+    });
+    </script>
+</body>
+</html>
