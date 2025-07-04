@@ -2,26 +2,85 @@
 <html lang="pl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
     <meta name="description" content="Goldbud Firma budowlana w Kaliszu. Elewacje, malowanie, remonty, ocieplenia. Sprawdź naszą ofertę!">
     <meta name="keywords" content="firma budowlana Kalisz, elewacje, remonty, ocieplenia domów, malowanie ścian, budowa Kalisz">
     <meta name="author" content="Goldbud">
+    <meta name="theme-color" content="#FFD700">
+    <meta name="color-scheme" content="light dark">
+    <meta property="og:title" content="Gold Bud - Firma budowlana w Kaliszu">
+    <meta property="og:description" content="Goldbud Firma budowlana w Kaliszu. Elewacje, malowanie, remonty, ocieplenia. Sprawdź naszą ofertę!">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="icon.ico">
+    <meta property="og:url" content="https://goldbud.example.com/">
     <title>Gold Bud - Firma budowlana w Kaliszu</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="index.css">
-    <link rel="shortcut icon" href="icon.ico" type="image/x-icon">
+    <link rel="icon" href="icon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="icon.ico">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
     <!-- AOS для анимаций при скролле -->
-<link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
 
+    <!-- Progressive Web App -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Gold Bud">
+    <meta name="msapplication-TileColor" content="#FFD700">
+    <meta name="msapplication-TileImage" content="icon.ico">
+
+    <!-- Favicons for all devices -->
+    <link rel="icon" type="image/png" sizes="32x32" href="icon.ico">
+    <link rel="icon" type="image/png" sizes="16x16" href="icon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="icon.ico">
+    <link rel="mask-icon" href="icon.ico" color="#FFD700">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Gold Bud - Firma budowlana w Kaliszu">
+    <meta name="twitter:description" content="Goldbud Firma budowlana w Kaliszu. Elewacje, malowanie, remonty, ocieplenia. Sprawdź naszą ofertę!">
+    <meta name="twitter:image" content="icon.ico">
+
+    <!-- Google Analytics (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XXXXXXXXXX');
+    </script>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <h1 class="logo" data-aos="fade-up" style="font-size: 3rem; font-family: 'Poppins', sans-serif; font-weight: 700; color: #FFD700; text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);">
-                Gold Bud
-            </h1>
+
+    <header class="ultra-header" data-aos="fade-down">
+      <div class="ultra-header-glass">
+        <div class="ultra-header-content">
+          <div class="ultra-logo-block">
+            <img src="icon.ico" alt="Gold Bud logo" class="ultra-logo-img" />
+            <span class="ultra-logo-text">Gold Bud</span>
+          </div>
+          <div class="ultra-header-right">
+            <div class="ultra-header-contacts">
+              <a href="tel:+48537647071" class="ultra-header-contact" title="Zadzwoń">
+                <i class="fas fa-phone-alt"></i>
+                <span class="hide-mobile">+48 537 647 071</span>
+              </a>
+              <a href="mailto:goldbud.f@gmail.com" class="ultra-header-contact" title="Napisz e-mail">
+                <i class="fas fa-envelope"></i>
+                <span class="hide-mobile">goldbud.f@gmail.com</span>
+              </a>
+            </div>
+          </div>
         </div>
+      </div>
     </header>
+
+
 
     <section id="hero">
         <div class="container">
@@ -33,6 +92,18 @@
             <a href="mailto:goldbud.f@gmail.com" class="button" data-aos="fade-up">Skontaktuj się z nami</a>
             <a href="galeria.html" class="gallery-button" data-aos="fade-up">Galeria</a>
             <a href="zamow-wycene.html" class="button" data-aos="fade-up">Zamów wycenę</a>
+
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="container">
+            <h2 data-aos="fade-up">O nas</h2>
+            <p data-aos="fade-up">
+                Gold Bud to firma z wieloletnim doświadczeniem w branży budowlanej. Nasz zespół składa się z wykwalifikowanych specjalistów, którzy dbają o każdy detal realizacji. Stawiamy na jakość, terminowość i zadowolenie klienta. Współpracujemy zarówno z klientami indywidualnymi, jak i firmami.
+            </p>
+        </div>
+    </section>
 
         </div>
     </section>
@@ -126,8 +197,27 @@
         </div>
     </footer>
 
+    <!-- Кнопка "наверх" -->
+    <button id="scrollTopBtn" title="Do góry"><i class="fas fa-arrow-up"></i></button>
+
 
     <script src="index.js"></script>
+
+    <script>
+
+    // Кнопка "наверх"
+    const scrollTopBtn = document.getElementById('scrollTopBtn');
+    window.addEventListener('scroll', function() {
+        if(window.scrollY > 300) {
+            scrollTopBtn.style.display = 'block';
+        } else {
+            scrollTopBtn.style.display = 'none';
+        }
+    });
+    scrollTopBtn.addEventListener('click', function() {
+        window.scrollTo({top: 0, behavior: 'smooth'});
+    });
+    </script>
 
     <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
 <script>
